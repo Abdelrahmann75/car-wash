@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- trigger -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,25 +10,29 @@
 <body>
   <div class="hero-container">
     <header>
-      <img src="trial_logo_trns.png" alt="Rinse N Roll Logo" class="logo">
+      <img src="Trial_logo_trns.png" alt="Rinse N Roll Logo" class="logo">
     </header>
 
     <div class="main-content">
       <div class="left-section">
-        <h1 class="main-heading">MOBILE CAR WASH</h1>
+        <h1 class="main-heading">We Roll Up, You Shine On.</h1>
         <ul class="features">
-          <li>Professional SUV & Sedan Services</li>
-          <li>Available 24/7 for Your Convenience</li>
-          <li>Premium Detailing Packages</li>
-          <li>Fully Mobile - We Come to You</li>
-          <li>Eco-Friendly Products Used</li>
-          <li>Licensed & Insured Professionals</li>
+          <li>We’re not just washing cars — we’re redefining convenience.</li>
+          <li>Fully mobile service — we bring water, power, and premium tools.</li>
+          <li>Eco-friendly products and expert car care every time.</li>
+          <li>No waiting in line. No wasted time.</li>
+          <li>From basic washes to deep detailing — we deliver shine, anywhere.</li>
         </ul>
       </div>
 
       <div class="right-section">
-        <h2 class="form-title">Reserve Your Service</h2>
-        <form class="reservation-form" id="reserveForm">
+        <h2 class="form-title">Book Your Service</h2>
+
+        <!-- ✅ Replace this with your actual Formspree endpoint -->
+        <form class="reservation-form" action="https://formspree.io/f/xkgzpbov" method="POST">
+          <!-- Optional: Subject -->
+          <input type="hidden" name="_subject" value="New Reservation from Rinse N' Roll Website" />
+
           <div class="form-group">
             <label for="fullName">Full Name *</label>
             <input type="text" id="fullName" name="fullName" required />
@@ -41,6 +44,11 @@
           </div>
 
           <div class="form-group">
+            <label for="location">Location *</label>
+            <input type="text" id="location" name="location" required />
+          </div>
+
+          <div class="form-group">
             <label for="serviceDate">Preferred Date & Time *</label>
             <input type="datetime-local" id="serviceDate" name="serviceDate" required />
           </div>
@@ -49,9 +57,9 @@
             <label for="serviceType">Service Type *</label>
             <select id="serviceType" name="serviceType" required>
               <option value="">Choose Your Service</option>
-              <option value="exterior">Exterior Wash & Wax</option>
-              <option value="full">Full Service Detail</option>
-              <option value="premium">Premium Complete Package</option>
+              <option value="Silver">Silver</option>
+              <option value="Gold">Gold</option>
+              <option value="premium">premium</option>
             </select>
           </div>
 
@@ -60,9 +68,8 @@
             <select id="vehicleType" name="vehicleType">
               <option value="">Select Vehicle Type</option>
               <option value="sedan">Sedan</option>
-              <option value="suv">SUV/Truck</option>
-              <option value="compact">Compact Car</option>
-              <option value="luxury">Luxury Vehicle</option>
+              <option value="suv">SUV</option>
+              
             </select>
           </div>
 
@@ -72,28 +79,8 @@
     </div>
   </div>
 
+  <!-- ✅ Optional: Auto-set minimum date to today -->
   <script>
-    document.getElementById('reserveForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form data
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
-      
-      // Simple validation
-      if (!data.fullName || !data.phoneNumber || !data.serviceDate || !data.serviceType) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-      
-      // Success message
-      alert('Thank you! Your reservation has been submitted. We will contact you shortly to confirm your appointment.');
-      
-      // Reset form
-      this.reset();
-    });
-
-    // Set minimum date to today
     const dateInput = document.getElementById('serviceDate');
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
