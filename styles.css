@@ -13,7 +13,9 @@ body, html {
   background-image: url('back_ground.png');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional parallax effect */
+
   color: white;
   display: flex;
   flex-direction: column;
@@ -98,11 +100,12 @@ header {
 .right-section {
   background: rgba(255, 255, 255, 0.95);
   color: #1a1a1a;
-  padding: 40px;
+  padding: 25px 30px;
   border-radius: 15px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   backdrop-filter: blur(10px);
 }
+
 
 .form-title {
   font-size: 1.8rem;
@@ -115,7 +118,7 @@ header {
 .reservation-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .form-group {
