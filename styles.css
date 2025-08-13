@@ -218,3 +218,19 @@ header {
     padding: 25px 20px;
   }
 }
+
+
+/* Make room for the absolute header */
+.hero-container { padding-top: 120px; }            /* desktop/tablet */
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .hero-container { padding-top: 90px; }           /* space for header */
+  .logo { width: 100px; height: auto; }            /* smaller logo */
+}
+
+@media (max-width: 480px) {
+  .hero-container { padding-top: 80px; }           /* a bit less space */
+  .logo { width: 80px; }                            /* even smaller */
+  .main-heading { font-size: 1.6rem; }              /* optional: smaller title */
+}
