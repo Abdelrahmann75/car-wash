@@ -129,11 +129,37 @@
   </div>
 
   <script>
+  document.addEventListener('DOMContentLoaded', function() {
     const dateInput = document.getElementById('serviceDate');
-    const now = new Date();
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    dateInput.min = now.toISOString().slice(0, 16);
-  </script>
+    
+    if (dateInput) {
+      const now = new Date();
+      
+      // Add 1 hour to current time to ensure minimum booking time
+      now.setHours(now.getHours() + 1);
+      
+      // Format for datetime-local input (YYYY-MM-DDTHH:MM)
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      
+      const minDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+      dateInput.min = minDateTime;
+      
+      // Additional validation on change for mobile browsers
+      dateInput.addEventListener('change', function() {
+        const selectedDate = new Date(this.value);
+        const currentDate = new Date();
+        
+        if (selectedDate < currentDate) {
+          alert('Please select a future date and time.');
+          this.value = '';
+        }
+      });
+    }
+  });
+</script>
 </body>
-
 </html>
