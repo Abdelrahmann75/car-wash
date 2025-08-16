@@ -11,14 +11,15 @@
 <body>
   <div class="hero-container">
     <header>
-      <img src="trial_logo_trns.png" alt="Rinse N Roll Logo" class="logo">
+      <img src="Trial_logo_trns.png" alt="Rinse N Roll Logo" class="logo">
     </header>
 
     <div class="main-content">
+      <!-- Left Section - Company Info -->
       <div class="left-section">
         <h1 class="main-heading">We Roll Up, You Shine On.</h1>
         <ul class="features">
-          <li>We’re not just washing cars — we’re redefining convenience.</li>
+          <li>We're not just washing cars — we're redefining convenience.</li>
           <li>Fully mobile service — we bring water, power, and premium tools.</li>
           <li>Eco-friendly products and expert car care every time.</li>
           <li>No waiting in line. No wasted time.</li>
@@ -26,12 +27,60 @@
         </ul>
       </div>
 
+      <!-- Middle Section - Pricing Packages -->
+      <div class="middle-section">
+        <h2 class="packages-title">Our Service Packages</h2>
+        
+        <div class="package silver">
+          <div class="package-header">
+            <div class="package-name">🥈 Silver Package</div>
+            <div class="package-price">300 EGP</div>
+          </div>
+          <ul class="package-features">
+            <li>Exterior wash</li>
+            <li>Interior vacuuming</li>
+            <li>Carpet and upholstery cleaning</li>
+            <li>Wheel cleaning</li>
+            <li>Tire polish</li>
+            <li>Window cleaning</li>
+            <li>Air freshener</li>
+          </ul>
+        </div>
+
+        <div class="package gold">
+          <div class="package-header">
+            <div class="package-name">🥇 Gold Package</div>
+            <div class="package-price">350 EGP</div>
+          </div>
+          <ul class="package-features">
+            <li>All Silver services</li>
+            <li>Upholstery polishing</li>
+            <li>Vent cleaning</li>
+            <li>AC vents deep clean</li>
+            <li>Floor mat detailing</li>
+          </ul>
+        </div>
+
+        <div class="package platinum">
+          <div class="package-header">
+            <div class="package-name">👑 Platinum Package</div>
+            <div class="package-price">500 EGP</div>
+          </div>
+          <ul class="package-features">
+            <li>All Gold services</li>
+            <li>Premium gold fragrance</li>
+            <li>Upholstery moisturizing</li>
+            <li>Full body pre-wash</li>
+            <li>Professional waxing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Section - Booking Form -->
       <div class="right-section">
         <h2 class="form-title">Book Your Service</h2>
 
-        <!-- ✅ Replace this with your actual Formspree endpoint -->
         <form class="reservation-form" action="https://formspree.io/f/xkgzpbov" method="POST">
-          <!-- Optional: Subject -->
           <input type="hidden" name="_subject" value="New Reservation from Rinse N' Roll Website" />
 
           <div class="form-group">
@@ -58,9 +107,9 @@
             <label for="serviceType">Service Type *</label>
             <select id="serviceType" name="serviceType" required>
               <option value="">Choose Your Service</option>
-              <option value="Silver">Silver</option>
-              <option value="Gold">Gold</option>
-              <option value="premium">premium</option>
+              <option value="Silver">Silver (300 EGP)</option>
+              <option value="Gold">Gold (350 EGP)</option>
+              <option value="Platinum">Platinum (500 EGP)</option>
             </select>
           </div>
 
@@ -70,7 +119,6 @@
               <option value="">Select Vehicle Type</option>
               <option value="sedan">Sedan</option>
               <option value="suv">SUV</option>
-              
             </select>
           </div>
 
@@ -80,7 +128,6 @@
     </div>
   </div>
 
-  <!-- ✅ Optional: Auto-set minimum date to today -->
   <script>
     const dateInput = document.getElementById('serviceDate');
     const now = new Date();
@@ -89,5 +136,3 @@
   </script>
 </body>
 </html>
-
-
